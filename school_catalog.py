@@ -4,8 +4,9 @@ class School:
     self.name = name
     self.numberOfStudents = numberOfStudents
   
-  def __repr__(School):
-    print("A {level} school named {name} with {numberOfStudents} students")
+  def __repr__(self):
+      return '{self.level} school named {self.name} has {self.numberOfStudents} students'.format(self=self)
+    
     
 
   def get_name(self):
@@ -32,20 +33,32 @@ class PrimarySchool(School):
     return self.pickupPolicy
 
 
+class HighSchool(School):
+    def __init__(self, name, level, numberOfStudents, pickupPolicy):
+        self.pickupPolicy = pickupPolicy
+        super().__init__(name, 'High', numberOfStudents)
+         
+         
+    def get_pickupPolicy(self):
+      return self.pickupPolicy
+
+
+
 
 new_school = School("89", "all", 400)
-#print(new_school)
-#print(new_school.get_name())
-#print(new_school.get_numberOfStudents())
-#print(new_school.get_level())
-new_school.set_numberOfStudents(500)
-#print(new_school.get_numberOfStudents())
+print(new_school)
 
 primary_school = PrimarySchool("Brain", 'Parimary', 90, "With parents")
+print(primary_school)
 print(primary_school.get_name())
 print(primary_school.get_numberOfStudents())
 print(primary_school.get_level())
 print(primary_school.get_pickupPolicy())
 
 
-
+high_school = HighSchool("Step", 'scs', 450, "Free")
+print(high_school)
+print("School name is %s" % high_school.get_name())
+print("The number of students is: %s" % high_school.get_numberOfStudents())
+print("The school level is %s" % high_school.get_level())
+print("The pickup policy is %s" % high_school.get_pickupPolicy())
